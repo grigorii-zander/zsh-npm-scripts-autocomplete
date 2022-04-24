@@ -1,14 +1,14 @@
 # zsh-npm-scripts-autocomplete
 This plugin shows autocomplete suggestions for `npm` scripts from `package.json` at current working directory.
-Works with `npm` and `yarn`
+Works with `npm` and `yarn`.
 
-![](docs/demo.gif)
+![](demo.gif)
 
 ## Installation
 ### oh-my-zsh
 
 #### Step 1
-Clone this repository to oh-my-zsh plugins folder  
+Clone this repository to your oh-my-zsh plugins folder  
 (by default `~/.oh-my-zsh/custom/plugins`):
 ```shell
 $ git clone \
@@ -26,7 +26,7 @@ plugins=(
 ```
 
 #### Step 3
-Restart your terminal or reload `.zshrc` config with following command:
+Restart your terminal or reload `.zshrc` config with the following command:
 ```shell
 $ source ~/.zshrc
 ```

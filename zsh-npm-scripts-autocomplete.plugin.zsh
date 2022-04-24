@@ -1,12 +1,12 @@
-local plugin_path=$0
-local _PWD=`echo $plugin_path | sed -e 's/\/zsh-npm-scripts-autocomplete\.plugin\.zsh//'`
+local _plugin_path=$0
+local _PWD=`echo $_plugin_path | sed -e 's/\/zsh-npm-scripts-autocomplete\.plugin\.zsh//'`
 
-znsaGetScripts() {
+__znsaGetScripts() {
   local pkgJson="$1"
   node "$_PWD/getScripts.js" "$pkgJson"
 }
 
-znsaFindFile() {
+__znsaFindFile() {
   local filename="$1"
   local dir=$PWD
   while [ ! -e "$dir/$filename" ]; do
@@ -16,44 +16,45 @@ znsaFindFile() {
   [[ ! "$dir" = "" ]] && echo "$dir/$filename"
 }
 
-znsaArgsLength() {
+__znsaArgsLength() {
   echo "$#words"
 }
 
-znsaYarnRunCompletion() {
-  # Only run on `yarn ?`
-  [[ ! "$(znsaArgsLength)" = "2" ]] && return
-  local pkgJson="$(znsaFindFile package.json)"
+__znsaYarnRunCompletion() {
+  [[ ! "$(__znsaArgsLength)" = "2" ]] && return
+  local pkgJson="$(__znsaFindFile package.json)"
   [[ "$pkgJson" = "" ]] && return
   local -a options
-  options=(${(f)"$(znsaGetScripts $pkgJson)"})
+  options=(${(f)"$(__znsaGetScripts $pkgJson)"})
   [[ "$#options" = 0 ]] && return
   _describe 'values' options
 }
 
-znsaNpmRunCompletion() {
-  [[ ! "$(znsaArgsLength)" = "3" ]] && return
-  local pkgJson="$(znsaFindFile package.json)"
+## to lazy to handler different number of arguments
+## just copy and paste it
+__znsaNpmRunCompletion() {
+  [[ ! "$(__znsaArgsLength)" = "3" ]] && return
+  local pkgJson="$(__znsaFindFile package.json)"
   [[ "$pkgJson" = "" ]] && return
   local -a options
-  options=(${(f)"$(znsaGetScripts $pkgJson)"})
+  options=(${(f)"$(__znsaGetScripts $pkgJson)"})
   [[ "$#options" = 0 ]] && return
   _describe 'values' options
 }
 
-znsaHandleYarn() {
-  znsaYarnRunCompletion
+__znsaHandleYarn() {
+  __znsaYarnRunCompletion
 }
 
-znsaHandleNpm(){
+__znsaHandleNpm(){
   case "${words[2]}" in
     run)
-      znsaNpmRunCompletion
+      __znsaNpmRunCompletion
       ;;
   esac
 }
 
 alias nr="npm run"
-compdef znsaYarnRunCompletion yarn
-compdef znsaYarnRunCompletion nr
-compdef znsaHandleNpm npm
+compdef __znsaYarnRunCompletion yarn
+compdef __znsaYarnRunCompletion nr
+compdef __znsaHandleNpm npm
