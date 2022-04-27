@@ -1,6 +1,6 @@
 # zsh-npm-scripts-autocomplete
 This plugin shows autocomplete suggestions for `npm` scripts from `package.json` at current working directory.
-Works with `npm` and `yarn`.
+Works with `npm`, `yarn` and `pnpm`.
 
 ![](demo.gif)
 
@@ -22,7 +22,6 @@ Add plugin to your `.zshrc` config:
 plugins=(
   zsh-npm-scripts-autocomplete
 )
-
 ```
 
 #### Step 3
