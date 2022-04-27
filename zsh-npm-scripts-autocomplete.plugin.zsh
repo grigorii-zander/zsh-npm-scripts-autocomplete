@@ -57,4 +57,5 @@ __znsaHandleNpm(){
 alias nr="npm run"
 compdef __znsaYarnRunCompletion yarn
 compdef __znsaYarnRunCompletion nr
+compdef __znsaYarnRunCompletion pnpm
 compdef __znsaHandleNpm npm

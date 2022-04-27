@@ -1,6 +1,6 @@
 # zsh-npm-scripts-autocomplete
 This plugin shows autocomplete suggestions for `npm` scripts from `package.json` at current working directory.
-Works with `npm` and `yarn`.
+Works with `npm`, `yarn` and `pnpm`.
 
 ![](demo.gif)
 
@@ -22,7 +22,6 @@ Add plugin to your `.zshrc` config:
 plugins=(
   zsh-npm-scripts-autocomplete
 )
-
 ```
 
 #### Step 3
@@ -30,3 +29,11 @@ Restart your terminal or reload `.zshrc` config with the following command:
 ```shell
 $ source ~/.zshrc
 ```
+
+#### Step 4 (optional)
+Invoke selected script with a single hit of `Enter/Return`.
+```shell
+zmodload -i zsh/complist
+bindkey -M menuselect '^M' .accept-line
+```
+https://superuser.com/questions/1498187/zsh-select-menu-auto-completion-with-single-enter-return-press
