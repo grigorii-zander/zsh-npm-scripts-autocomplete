@@ -29,3 +29,11 @@ Restart your terminal or reload `.zshrc` config with the following command:
 ```shell
 $ source ~/.zshrc
 ```
+
+#### Step 4 (optional)
+Invoke selected script with a single hit of `Enter/Return`.
+```shell
+zmodload -i zsh/complist
+bindkey -M menuselect '^M' .accept-line
+```
+https://superuser.com/questions/1498187/zsh-select-menu-auto-completion-with-single-enter-return-press
