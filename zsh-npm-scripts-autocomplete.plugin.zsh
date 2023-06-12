@@ -1,9 +1,9 @@
 local _plugin_path=$0
 local _PWD=`echo $_plugin_path | sed -e 's/\/zsh-npm-scripts-autocomplete\.plugin\.zsh//'`
-
+__zna_pwd="$_PWD"
 __znsaGetScripts() {
   local pkgJson="$1"
-  node "$_PWD/getScripts.js" "$pkgJson" 2>/dev/null
+  node "$__zna_pwd/getScripts.js" "$pkgJson" 2>/dev/null
 }
 
 __znsaFindFile() {
