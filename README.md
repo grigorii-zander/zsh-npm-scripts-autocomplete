@@ -11,7 +11,7 @@ Works with `npm`, `yarn` and `pnpm`.
 Clone this repository to your oh-my-zsh plugins folder  
 (by default `~/.oh-my-zsh/custom/plugins`):
 ```shell
-$ git clone \
+git clone \
   git@github.com:grigorii-zander/zsh-npm-scripts-autocomplete.git \
   ~/.oh-my-zsh/custom/plugins/zsh-npm-scripts-autocomplete
 ```
@@ -27,7 +27,7 @@ plugins=(
 #### Step 3
 Restart your terminal or reload `.zshrc` config with the following command:
 ```shell
-$ source ~/.zshrc
+source ~/.zshrc
 ```
 
 #### Step 4 (optional)
