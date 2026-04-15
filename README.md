@@ -13,7 +13,7 @@ Clone this repository to your oh-my-zsh plugins folder
 ```shell
 git clone \
   git@github.com:grigorii-zander/zsh-npm-scripts-autocomplete.git \
-  ~/.oh-my-zsh/custom/plugins/zsh-npm-scripts-autocomplete
+  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-npm-scripts-autocomplete
 ```
 
 #### Step 2
